@@ -1,4 +1,6 @@
 # Cancer-Detection
+
+# Import necessary libraries
 import pandas as pd
 import numpy as np
 from sklearn.model_selection import train_test_split
@@ -16,11 +18,12 @@ url = "https://archive.ics.uci.edu/ml/machine-learning-databases/breast-cancer-w
 columns = ['ID', 'Diagnosis'] + [f'Feature_{i}' for i in range(1, 31)]
 data = pd.read_csv(url, header=None, names=columns)
 
+# Explore the dataset
 print("Dataset head:\n", data.head())
 print("\nDataset information:\n", data.info())
 print("\nSummary statistics:\n", data.describe())
 
-# target variable
+# Encode the target variable
 data['Diagnosis'] = data['Diagnosis'].map({'M': 1, 'B': 0})  # Malignant=1, Benign=0
 
 # Split the data into features and target
